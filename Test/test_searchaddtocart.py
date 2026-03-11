@@ -1,6 +1,7 @@
 import pytest
 from Utility.driver_setup import get_driver
 from pages.searchpom import endtoendtesting
+from pages.cartpage import cart
 
 
 @pytest.fixture(scope="session")
@@ -13,6 +14,11 @@ def driver():
 @pytest.fixture(scope="session")
 def endtoendtest(driver):
     return endtoendtesting(driver)
+
+
+@pytest.fixture(scope="session")
+def cartverify(driver):
+    return cart(driver)
 
 
 def test_Browseropen(endtoendtest):
@@ -29,3 +35,11 @@ def test_selectedpopulerproduct(endtoendtest):
 
 def test_anotherproductaddtocart(endtoendtest):
     endtoendtest.selectanotherproductaddtocart()
+
+
+def test_carticonclick(cartverify):
+    cartverify.clickcarticon()
+
+
+def test_verifycartpage(cartverify):
+    cartverify.verifycartpage()
