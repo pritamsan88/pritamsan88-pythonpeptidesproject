@@ -17,6 +17,7 @@ class cart:
         time.sleep(5)
 
     def verifycartpage(self):
+        total = 0
 
         listofelements = self.driver.find_elements(By.CSS_SELECTOR, "div.cart_sidepanel_cnct_dtl > h2 > a")
         listofprices = self.driver.find_elements(By.CSS_SELECTOR, "div.addcrt_wrap > h6 > span > bdi")
@@ -29,6 +30,7 @@ class cart:
             time.sleep(1)
             itemprice = ""
             quantity = ""
+
             if i < len(listofprices):
                 price_text = listofprices[i].text.strip().replace('\n', '')
                 itemprice = price_text.replace('$', '').replace(',', '').split('.')[0]
@@ -36,3 +38,8 @@ class cart:
             if i < len(listofquantity):
                 quantity = listofquantity[i].get_attribute("value")
             print(f"Added product in the cart is :- {text} | Price: {itemprice} | Quantity: {quantity}")
+
+            if itemprice and quantity:
+                total += int(itemprice) * int(quantity)
+
+        print(f"Total price is {total}")
