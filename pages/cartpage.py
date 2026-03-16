@@ -49,4 +49,5 @@ class cart:
                 total += int(itemprice) * int(quantity)
 
         print(f"Total price is {total}")
-
+        expectedprice = self.driver.find_element(*self.totalprice).text.replace("$", "").replace(",", "").strip().split(".")[0]
+        assert str(total) == expectedprice, f"Expected total price '{total}' does not match actual total price '{expectedprice}'"
