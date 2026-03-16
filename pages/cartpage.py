@@ -10,11 +10,16 @@ class cart:
     def __init__(self, driver: WebDriver):
         self.driver: WebDriver = driver
         self.headercaerticon = (By.CSS_SELECTOR, "#cart_toggle>img")
+        self.cartname = (By.XPATH, "//h3[text()='Cart']")
 
     def clickcarticon(self):
         wait = WebDriverWait(self.driver, 60)
         wait.until(EC.element_to_be_clickable(self.headercaerticon)).click()
         time.sleep(5)
+        expected = "Cart"
+        actual = self.driver.find_element(*self.cartname).text.strip()
+        assert expected == actual, f"Expected text '{expected}' does not match actual text '{actual}'"
+        print("cart icon is click and cart page is open")
 
     def verifycartpage(self):
         total = 0
