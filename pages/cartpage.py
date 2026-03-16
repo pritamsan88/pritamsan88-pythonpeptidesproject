@@ -11,6 +11,7 @@ class cart:
         self.driver: WebDriver = driver
         self.headercaerticon = (By.CSS_SELECTOR, "#cart_toggle>img")
         self.cartname = (By.XPATH, "//h3[text()='Cart']")
+        self.totalprice=(By.CSS_SELECTOR,"#total_ammount > span > bdi")
 
     def clickcarticon(self):
         wait = WebDriverWait(self.driver, 60)
@@ -48,3 +49,4 @@ class cart:
                 total += int(itemprice) * int(quantity)
 
         print(f"Total price is {total}")
+

@@ -16,7 +16,7 @@ class endtoendtesting:
         self.addtocartbuttoninproductdetailspage = (By.XPATH, "//button[@type='submit']/span")
         self.successadded = (By.CSS_SELECTOR, "div.addingtocartTextwrppr > p")
         self.headercarticon = (By.CSS_SELECTOR, "#cart_toggle > img")
-        self.totalprice=(By.CSS_SELECTOR,"")
+
         # self.listofelements = self.driver.find_elements(By.CSS_SELECTOR, "div.prd_card_des > h3 > a")
 
     def open(self):
