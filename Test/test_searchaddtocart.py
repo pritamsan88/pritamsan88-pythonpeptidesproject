@@ -43,3 +43,6 @@ def test_carticonclick(cartverify):
 
 def test_verifycartpage(cartverify):
     cartverify.verifycartpage()
+
+def test_clickbuynow(cartverify):
+    cartverify.clickbuynow()
