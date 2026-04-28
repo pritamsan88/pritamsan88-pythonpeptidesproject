@@ -12,7 +12,7 @@ class cart:
         self.headercaerticon = (By.CSS_SELECTOR, "#cart_toggle>img")
         self.cartname = (By.XPATH, "//h3[text()='Cart']")
         self.totalprice = (By.CSS_SELECTOR, "#total_ammount > span > bdi")
-        self.buynow=(By.XPATH,"//a[contains(@href,'/checkout')]")
+        self.buynow = (By.XPATH, "//a[contains(@href,'/checkout')]")
 
     def clickcarticon(self):
         wait = WebDriverWait(self.driver, 60)
@@ -51,7 +51,7 @@ class cart:
 
         print(f"Total price is {total}")
         expectedprice = \
-        self.driver.find_element(*self.totalprice).text.replace("$", "").replace(",", "").strip().split(".")[0]
+            self.driver.find_element(*self.totalprice).text.replace("$", "").replace(",", "").strip().split(".")[0]
         assert str(
             total) == expectedprice, f"Expected total price '{total}' does not match actual total price '{expectedprice}'"
         print("Total price is verified successfully")
@@ -60,4 +60,4 @@ class cart:
 
         wait = WebDriverWait(self.driver, 60)
         wait.until(EC.element_to_be_clickable(self.buynow)).click()
-        time.sleep(2)
+        time.sleep(3)

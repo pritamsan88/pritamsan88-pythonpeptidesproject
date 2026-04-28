@@ -2,6 +2,7 @@ import pytest
 from Utility.driver_setup import get_driver
 from pages.searchpom import endtoendtesting
 from pages.cartpage import cart
+from pages.checkout import checkoutsection
 
 
 @pytest.fixture(scope="session")
@@ -19,6 +20,11 @@ def endtoendtest(driver):
 @pytest.fixture(scope="session")
 def cartverify(driver):
     return cart(driver)
+
+
+@pytest.fixture(scope="session")
+def checkoutsectiontesting(driver):
+    return checkoutsection(driver)
 
 
 def test_Browseropen(endtoendtest):
@@ -44,5 +50,10 @@ def test_carticonclick(cartverify):
 def test_verifycartpage(cartverify):
     cartverify.verifycartpage()
 
+
 def test_clickbuynow(cartverify):
     cartverify.clickbuynow()
+
+
+def test_clickloginfromckeckoutsection(checkoutsectiontesting):
+    checkoutsectiontesting.clickloginoncheckoutpage()
