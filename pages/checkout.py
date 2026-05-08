@@ -24,3 +24,14 @@ class checkoutsection:
         self.driver.execute_script("arguments[0].scrollIntoView(true);", login_element)
         login_element.click()
         time.sleep(3)
+
+    def afterloginverify(self):
+        expected = "/peptidesciences_wordpress/checkout/"
+        actual = self.driver.current_url
+        assert expected in actual, f"Expected URL to contain '{expected}' but got '{actual}'"
+        print("Login successful and user is on checkout page")
+
+
+    def fetchdatafromcheckoutsection(self):
+        time.time(2)
+        

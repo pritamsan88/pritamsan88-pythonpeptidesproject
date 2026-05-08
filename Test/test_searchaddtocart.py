@@ -57,3 +57,4 @@ def test_clickbuynow(cartverify):
 
 def test_clickloginfromckeckoutsection(checkoutsectiontesting):
     checkoutsectiontesting.clickloginoncheckoutpage()
+    checkoutsectiontesting.afterloginverify()
